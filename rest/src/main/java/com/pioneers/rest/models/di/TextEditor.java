@@ -1,9 +1,10 @@
 package com.pioneers.rest.models.di;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class TextEditor {
     private SpellChecker spellChecker;
 
@@ -25,7 +26,9 @@ public class TextEditor {
     }
 
     @Autowired
+    @Qualifier(value = "paidSpellChecker")
     public void setSpellChecker(SpellChecker spellChecker) {
+        System.out.println("spellChecker.getBeanName() = " + spellChecker.getBeanName());
         System.out.println("I am in the setSpellChecker");
         this.spellChecker = spellChecker;
     }

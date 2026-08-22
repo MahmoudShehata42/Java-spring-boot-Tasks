@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("text")
 public class TextEditorController {
+    // SpellChecker spellChecker = new SpellChecker();
+    // TextEditor textEditor = new TextEditor();
+    // textEditor.setSpellChecker(spellChecker)
+    // TextEditorController textEditorController = new TextEditorController(textEditor);
 
     private final TextEditor textEditor;
 

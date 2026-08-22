@@ -1,9 +1,12 @@
 package com.pioneers.rest.models.di;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+// beanName = "paidSpellChecker"
+@Service
 public class PaidSpellChecker implements SpellChecker {
+    private final String beanName = "paidSpellChecker";
 
     private final String owner = "Tech Pioneers Hub";
 
@@ -13,5 +16,10 @@ public class PaidSpellChecker implements SpellChecker {
 
     public String getOwner() {
         return owner;
+    }
+
+    @Override
+    public String getBeanName() {
+        return beanName;
     }
 }
