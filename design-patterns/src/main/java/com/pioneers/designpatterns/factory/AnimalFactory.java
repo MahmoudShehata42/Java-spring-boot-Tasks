@@ -11,6 +11,14 @@ public class AnimalFactory {
             return new Lion();
         }
 
-        return new Dog();
+        if (Animal.TIGER.equals(animal)) {
+            return new Tiger();
+        }
+
+        if (Animal.DOG.equals(animal)) {
+            return new Dog();
+        }
+
+        throw new Animal.AnimalException("The animal " + animal + " is not a listed in our system");
     }
 }

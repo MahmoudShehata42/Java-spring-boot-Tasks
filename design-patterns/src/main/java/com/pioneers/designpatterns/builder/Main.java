@@ -16,13 +16,23 @@ public class Main {
                 .zip(11835)
                 .street("Alzobair bn alawam")
                 .buildingNumber(15)
+                .build();
+
+        final Address newAddress = Address.builder()
+                .continent(address.continent())
+                .country(address.country())
+                .governance(address.governance())
+                .city(address.city())
+                .zip(address.zip())
+                .street(address.street())
+                .buildingNumber(address.buildingNumber())
                 .floor(1)
                 .apartmentNumber(1)
-                .isActive(false)
+                .isActive(true)
                 .rooms(List.of("Room1", "Room2"))
                 .build();
 
-        System.out.println(address);
+        System.out.println(newAddress);
 
         System.out.println("address.getCountry() = " + address.country());
         System.out.println("address.getGovernance() = " + address.governance());
@@ -32,5 +42,7 @@ public class Main {
         System.out.println("address.getBuildingNumber() = " + address.buildingNumber());
         System.out.println("address.getFloor() = " + address.floor());
         System.out.println("address.getApartmentNumber() = " + address.apartmentNumber());
+        System.out.println("address.getIsActive() = " + address.isActive());
+        System.out.println("address.getRooms() = " + address.rooms());
     }
 }

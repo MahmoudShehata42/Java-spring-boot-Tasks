@@ -1,4 +1,4 @@
-package com.pioneers.designpatterns.factory;
+package com.pioneers.designpatterns.strategy;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,9 @@ import java.util.Arrays;
 public enum Animal {
     LION("lion"),
     DOG("dog"),
-    TIGER("tiger");
+    TIGER("tiger"),
+    CAT("cat"),
+    ZEBRA("zebra");
 
     private final String animalType;
 
@@ -23,6 +25,10 @@ public enum Animal {
 
     private boolean hasType(final String animalType) {
         return this.getAnimalType().equalsIgnoreCase(animalType);
+    }
+
+    public boolean hasType(final Animal animal) {
+        return this.getAnimalType().equalsIgnoreCase(animal.getAnimalType());
     }
 
     public static class AnimalException extends RuntimeException {

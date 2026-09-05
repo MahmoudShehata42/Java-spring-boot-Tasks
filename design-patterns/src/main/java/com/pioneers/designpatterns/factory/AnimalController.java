@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("animalService")
+@RestController(value = "animalControllerFactory")
+@RequestMapping("factory/animalService")
 public class AnimalController {
 
     @GetMapping("feed/{animalName}")

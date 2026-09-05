@@ -3,7 +3,7 @@ package com.pioneers.designpatterns.builder;
 import java.util.List;
 
 public record Address(String continent, String country, String governance, String city, int zip, String street,
-                      int buildingNumber, int floor, int apartmentNumber, boolean isActive, List<String> rooms) {
+                      int buildingNumber, int floor, int apartmentNumber, boolean isActive, List<String> rooms) implements Cloneable {
 
     private Address(AddressBuilder builder) {
         this(builder.continent, builder.country, builder.governance, builder.city, builder.zip, builder.street,
