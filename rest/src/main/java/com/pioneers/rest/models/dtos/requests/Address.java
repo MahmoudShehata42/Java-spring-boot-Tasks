@@ -9,7 +9,7 @@ import lombok.Data;
 //@RequiredArgsConstructor
 //@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor/*(access = AccessLevel.PRIVATE)*/
 public class Address {
     private String continent;
     private String country;

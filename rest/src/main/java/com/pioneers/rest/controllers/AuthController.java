@@ -33,6 +33,10 @@ import static com.pioneers.rest.utils.validators.StudentValidator.validateStuden
 @RequestMapping("auth")
 public class AuthController {
 
+    public AuthController() {
+        log.debug("In AuthController()");
+    }
+
     @PostMapping("signup")
     public ResponseEntity<List<String>> registerStudentApi(
             @RequestBody final StudentRegister studentRegisterRequest
