@@ -4,16 +4,19 @@ import com.pioneers.service.errors.exceptions.*;
 import com.pioneers.service.errors.models.ErrorResponse;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Optional;
 
 @Slf4j
-@RestControllerAdvice
+@ControllerAdvice
 public class StudentExceptionHandler {
 
     // TODO: remove all log.error() from the entire application and only add log.error() in each handler
+    @ResponseBody
     @ExceptionHandler(exception = StudentException.class)
     public ErrorResponse<?> handleStudentException(final StudentException e) {
         return new ErrorResponse<>(
