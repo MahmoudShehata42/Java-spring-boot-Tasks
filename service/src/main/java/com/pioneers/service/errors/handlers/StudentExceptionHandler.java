@@ -15,7 +15,6 @@ import java.util.Optional;
 @ControllerAdvice
 public class StudentExceptionHandler {
 
-    // TODO: remove all log.error() from the entire application and only add log.error() in each handler
     @ResponseBody
     @ExceptionHandler(exception = StudentException.class)
     public ErrorResponse<?> handleStudentException(final StudentException e) {
