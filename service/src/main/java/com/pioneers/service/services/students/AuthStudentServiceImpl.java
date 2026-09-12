@@ -1,4 +1,4 @@
-package com.pioneers.service.services;
+package com.pioneers.service.services.students;
 
 import com.pioneers.service.errors.exceptions.*;
 import com.pioneers.service.models.dtos.requests.StudentLogin;
@@ -29,6 +29,7 @@ public class AuthStudentServiceImpl implements AuthStudentService {
 
     private final StudentRepository studentRepositoryImpl;
 
+    // TODO: Change the list format to return the field and its cause
     @Override
     public void signup(final StudentRegister studentRegisterRequest) throws RegisterException, ValidationException {
         final String methodName = "signup";
@@ -106,7 +107,7 @@ public class AuthStudentServiceImpl implements AuthStudentService {
     }
 
     @Override
-    public Object saveAll(final List<StudentRegister> studentRegisterRequests)
+    public GenericResponse<?> saveAll(final List<StudentRegister> studentRegisterRequests)
             throws RegisterException, ValidationException {
 
         final List<Student> registeredStudents = new ArrayList<>();
@@ -122,7 +123,7 @@ public class AuthStudentServiceImpl implements AuthStudentService {
         });
 
         if (registeredStudents.isEmpty()) {
-            return "Successfully all registeredStudents successfully!";
+            return new GenericResponse<>("Successfully all registeredStudents successfully!", Optional.empty());
         }
 
         final List<StudentResponse> rejectedStudentsList = registeredStudents.stream()

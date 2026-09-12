@@ -10,7 +10,7 @@ public interface StudentRepository {
 
     void save(final Student student);
 
-    void delete(final UUID id);
+    void deleteById(final UUID id);
 
     void deleteAll();
 

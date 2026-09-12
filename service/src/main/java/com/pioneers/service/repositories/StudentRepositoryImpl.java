@@ -25,7 +25,7 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public void delete(final UUID id) {
+    public void deleteById(final UUID id) {
         final String methodName = "delete";
         dbService.delete(id);
         log.debug("{}, deleting the student with id [{}]", methodName, id);
