@@ -40,6 +40,35 @@ public final class ValidationRulesService {
         validatorService.validate(ruleValue);
     }
 
+    public static boolean isValidStudentRegistration(final String name, final int age) {
+        if (isNullOrBlank(name)) {
+            return false;
+        }
+
+        final String trimmedName = name.trim();
+        return trimmedName.length() >= 3
+                && trimmedName.length() <= 20
+                && age >= 18
+                && age <= 25;
+    }
+
+    public static void validateStudentRegistration(
+            final String name,
+            final int age,
+            final Runnable onSuccess,
+            final Runnable onFailure) {
+        if (isValidStudentRegistration(name, age)) {
+            if (onSuccess != null) {
+                onSuccess.run();
+            }
+            return;
+        }
+
+        if (onFailure != null) {
+            onFailure.run();
+        }
+    }
+
     private static Optional<ValidatorService<String>> findRule(final ValidationRules rule) {
         return Optional.ofNullable(RULES.get(rule));
     }
